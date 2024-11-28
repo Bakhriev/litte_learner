@@ -1,0 +1,302 @@
+@use "../helpers/mixins" as *;
+
+.logo {
+	&__img {
+		width: 182px;
+		height: 40px;
+
+		@media screen and (max-width: 1440px) {
+			width: 156px;
+			height: 34px;
+		}
+
+		@media screen and (max-width: 992px) {
+			width: 138px;
+			height: 30px;
+		}
+	}
+}
+
+.header {
+	padding-top: 16px;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+
+		max-width: 1850px;
+	}
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		overflow: hidden;
+
+		height: 80px;
+
+		border: var(--border);
+		border-radius: 8px;
+		background-color: var(--absolute-white);
+
+		@media screen and (max-width: 1440px) {
+			height: 66px;
+		}
+
+		@media screen and (max-width: 992px) {
+			height: 62px;
+		}
+	}
+
+	&__logo {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 230px;
+		height: 100%;
+
+		background-color: var(--orange-65);
+		border-right: var(--border);
+
+		@media screen and (max-width: 1440px) {
+			width: 194px;
+		}
+
+		@media screen and (max-width: 992px) {
+			width: 176px;
+		}
+	}
+
+	&__nav {
+		@media screen and (max-width: 1240px) {
+			display: none;
+		}
+	}
+
+	&__nav,
+	&__menu {
+		height: 100%;
+	}
+
+	&__burger {
+		display: none;
+
+		width: 88px;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		border-left: var(--border);
+		background-color: var(--orange-95);
+		transition: background-color 150ms ease-in-out;
+
+		@include hover {
+			background-color: var(--orange-65);
+		}
+
+		&:focus-visible {
+			background-color: var(--orange-65);
+		}
+
+		@media screen and (max-width: 1240px) {
+			display: flex;
+		}
+	}
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+
+	&__item {
+		height: 100%;
+		display: flex;
+		align-items: center;
+
+		&:first-child {
+			border-left: var(--border);
+		}
+
+		&:not(:last-child) {
+			border-right: var(--border);
+		}
+	}
+
+	&__link {
+		height: 100%;
+		display: inline-flex;
+		align-items: center;
+		padding: 0 34px;
+
+		color: var(--grey-15);
+
+		transition: background-color 150ms ease-in-out;
+
+		&.active {
+			background-color: var(--orange-95);
+		}
+
+		@include hover {
+			background-color: var(--orange-65);
+		}
+
+		&:focus-visible {
+			background-color: var(--orange-65);
+		}
+	}
+}
+
+.contact {
+	background-color: var(--orange-75);
+}
+
+.banner {
+	position: relative;
+
+	padding: 12px 0px;
+
+	overflow: hidden;
+
+	border: var(--border);
+	border-radius: 6px;
+	background-color: var(--orange-90);
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		z-index: 1;
+
+		background-image: url("../img/svg/banner_shape.svg");
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	&::before {
+		top: -28px;
+		left: 30%;
+
+		width: 72px;
+		aspect-ratio: 1;
+
+		@media screen and (max-width: 1440px) {
+			top: -25px;
+			width: 50px;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 32px;
+			left: 4px;
+			top: -12px;
+		}
+	}
+
+	&::after {
+		bottom: -12px;
+		right: 30%;
+
+		width: 40px;
+		aspect-ratio: 1;
+
+		@media screen and (max-width: 1440px) {
+			bottom: -14px;
+			width: 32px;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 50px;
+			right: -18px;
+			bottom: -30px;
+		}
+	}
+
+	@media screen and (max-width: 1440px) {
+		padding: 8px 0;
+	}
+
+	@media screen and (max-width: 768px) {
+		padding: 10px 0;
+	}
+
+	&__texture {
+		position: absolute;
+
+		width: 224px;
+		aspect-ratio: 1;
+
+		background-position: center center;
+		background-size: 100%;
+		background-repeat: no-repeat;
+
+		@media screen and (max-width: 1440px) {
+			width: 180px;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 50px;
+		}
+
+		&:first-child {
+			left: -10px;
+			top: -130px;
+			background-image: url("../img/svg/banner_texture_left.svg");
+
+			@media screen and (max-width: 1440px) {
+				top: -90px;
+			}
+
+			@media screen and (max-width: 768px) {
+				top: -2px;
+				left: 0;
+			}
+		}
+
+		&:nth-child(2) {
+			top: -130px;
+			right: -10px;
+			background-image: url("../img/svg/banner_texture_right.svg");
+
+			@media screen and (max-width: 1440px) {
+				top: -90px;
+			}
+
+			@media screen and (max-width: 768px) {
+				top: -2px;
+			}
+		}
+	}
+
+	&__icon {
+		width: 30px;
+		height: 30px;
+
+		@media screen and (max-width: 1440px) {
+			width: 24px;
+			height: 24px;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	&__text {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 14px;
+
+		font-size: 16px;
+		color: var(--grey-15);
+
+		@media screen and (max-width: 768px) {
+			font-size: 14px;
+			gap: 10px;
+		}
+	}
+}
