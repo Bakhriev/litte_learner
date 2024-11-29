@@ -9,6 +9,15 @@
 
 .main {
 	flex-grow: 1;
+	padding-bottom: 200px;
+
+	@media screen and (max-width: 1440px) {
+		padding-bottom: 150px;
+	}
+
+	@media screen and (max-width: 992px) {
+		padding-bottom: 80px;
+	}
 }
 
 .container {
